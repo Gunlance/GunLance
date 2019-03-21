@@ -1,0 +1,53 @@
+site_name: GunLance's Blog
+site_author: GunLance
+theme:
+  name: material
+  feature:
+    tabs: true
+  language: 'zh'
+  palette:
+    primary: 'grey'
+    accent: 'red'
+  # logo:
+  #   icon: ''
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+
+extra:
+  search:
+    language: 'jp'
+  # social:
+  #   - type: 'github'
+  #     link: 'https://github.com/squidfunk'
+  #   - type: 'twitter'
+  #     link: 'https://twitter.com/squidfunk'
+  #   - type: 'linkedin'
+  #     link: 'https://linkedin.com/in/squidfunk'
