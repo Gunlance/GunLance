@@ -1,14 +1,6 @@
-# Gunlance's Blog
+# Gunlance
 
-一句话简介： 铳枪的博客
-
-## 为什么是铳枪
-
-能插能射能打炮！男人的浪漫！
-
-<font color=d55fde>*粉紫色斜体 个人评价*</font> 
-
-
+<font color=d55fde>*粉紫色斜体 个人瞎想*</font> 
 
 ## Material color palette 颜色主题
 

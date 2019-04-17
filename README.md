@@ -1,4 +1,4 @@
-# Gunlance's Blog
+# Gunlance's
 
 基于mkdocs-material搭建的Github Page
 
