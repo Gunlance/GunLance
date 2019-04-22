@@ -85,7 +85,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#160" tabindex="1" class="md-skip">
+      <a href="#125" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -441,8 +441,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#160" title="160" class="md-nav__link">
-    160
+  <a href="#125" title="125" class="md-nav__link">
+    125
   </a>
   
     <nav class="md-nav">
@@ -451,6 +451,13 @@
           <li class="md-nav__item">
   <a href="#_1" title="法一" class="md-nav__link">
     法一
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="法二" class="md-nav__link">
+    法二
   </a>
   
 </li>
@@ -764,8 +771,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#160" title="160" class="md-nav__link">
-    160
+  <a href="#125" title="125" class="md-nav__link">
+    125
   </a>
   
     <nav class="md-nav">
@@ -774,6 +781,13 @@
           <li class="md-nav__item">
   <a href="#_1" title="法一" class="md-nav__link">
     法一
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="法二" class="md-nav__link">
+    法二
   </a>
   
 </li>
@@ -802,44 +816,21 @@
                 
                   <h1>151 160</h1>
                 
-                <h2 id="160">160<a class="headerlink" href="#160" title="Permanent link">&para;</a></h2>
-<p>寻找两个节点的连接处</p>
-<p><img alt="" src="../assets/2019-04-20-23-01-23.png" /></p>
-<p><img alt="" src="../assets/2019-04-20-23-01-43.png" /></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
-Output: Reference of the node with value = 8
-Input Explanation: The intersected node&#39;s value is 8 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,0,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.
-</pre></div>
-</td></tr></table>
-
-<p><strong>想法</strong></p>
-<p>返回的是链表节点这个实例</p>
-<p>链表题判断结构大都是遍历上下功夫，比如快慢节点</p>
-<p>这里可以用，假设链表A与链表B有公共节点，这里有两个指针pa，pb
-pa当A遍历完后走B，同理pb遍历B后走a；走到交点的时候，两个指针走的距离肯定是一样的</p>
+                <h2 id="125">125<a class="headerlink" href="#125" title="Permanent link">&para;</a></h2>
+<p>判断字符串是否回文，去掉标点符号等，不判断大小写</p>
+<p>无脑呗</p>
+<h3 id="_1">法一<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>这里设
-A = 1 2 3          4 5 6 7 8  
-B = 9 7 6 5 4 3    4 5 6 7 8
-
-pa = 1 2 3 4 5 6 7 8 9 7 6 5 4 3
-pb = 9 7 6 5 4 3 4 5 6 7 8 1 2 3
-
-3+5 + 6
-6+5 + 3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">isPalindrome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </td></tr></table>
 
-<h3 id="_1">法一<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="_2">法二<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -852,23 +843,19 @@ pb = 9 7 6 5 4 3 4 5 6 7 8 1 2 3
 10
 11
 12
-13
-14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">getIntersectionNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headA</span><span class="p">,</span> <span class="n">headB</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type head1, head1: ListNode</span>
-<span class="sd">        :rtype: ListNode</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">headA</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">headB</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span>
-        <span class="n">pa</span> <span class="o">=</span> <span class="n">headA</span>
-        <span class="n">pb</span> <span class="o">=</span> <span class="n">headB</span>
-
-        <span class="k">while</span> <span class="n">pa</span> <span class="o">!=</span> <span class="n">pb</span><span class="p">:</span>
-            <span class="n">pa</span> <span class="o">=</span> <span class="n">headB</span> <span class="k">if</span> <span class="n">pa</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">pa</span><span class="o">.</span><span class="n">next</span>
-            <span class="n">pb</span> <span class="o">=</span> <span class="n">headA</span> <span class="k">if</span> <span class="n">pb</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">pb</span><span class="o">.</span><span class="n">next</span>
-        <span class="k">return</span> <span class="n">pa</span>
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">isPalindrome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">s</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">isalnum</span><span class="p">():</span>
+                <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">s</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">isalnum</span><span class="p">():</span>
+                <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="n">s</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="k">return</span> <span class="bp">False</span>
+            <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">True</span>
 </pre></div>
 </td></tr></table>
                 
