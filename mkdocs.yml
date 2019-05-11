@@ -1,4 +1,4 @@
-site_name: GunLance's Blog
+site_name: GunLance's Gitpage
 site_author: GunLance
 theme:
   name: material
@@ -44,10 +44,10 @@ extra_javascript:
 extra:
   search:
     language: 'jp'
-  # social:
-  #   - type: 'github'
-  #     link: 'https://github.com/squidfunk'
+  social:
+    - type: 'github'
+      link: 'https://github.com/Gunlance'
   #   - type: 'twitter'
-  #     link: 'https://twitter.com/squidfunk'
+  #     link: 'https://twitter.com/'
   #   - type: 'linkedin'
-  #     link: 'https://linkedin.com/in/squidfunk'
+  #     link: 'https://linkedin.com/in/'
