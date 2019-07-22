@@ -739,18 +739,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vol 1/091-100/" title="091 100" class="md-nav__link">
-      091 100
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../vol 1/101-110/" title="101 110" class="md-nav__link">
       101 110
     </a>
@@ -1629,10 +1617,10 @@
 <p>每横，每列，每3*3的格子内都有1-9且不重复</p>
 <p><strong>想法</strong></p>
 <ul>
-<li>难道要暴力遍历？</li>
+<li>难道要暴力遍历？<ul>
 <li>不过这是中等题。。。。emmmmm</li>
 <li>对于格子有
-    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+  <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -1671,6 +1659,8 @@
 5,0 5,1 5,2
 </pre></div>
 </td></tr></table></li>
+</ul>
+</li>
 </ul>
 <h3 id="_2">法一<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>暴力遍历</p>
@@ -2136,7 +2126,7 @@ A solution set is:
 <p><strong>想法</strong></p>
 <p>使用dic来记录？dic[i]=set(list1,list2)===&gt;dic[target]=set(list1,list2)</p>
 <p>这种想法错误，set不能以list初始化，list不可hash</p>
-<p>那么只能这样使用:dic[i]=[sorted(list1),sorted(list2),...] 写是可以，但是优化余地特别大</p>
+<p>那么只能这样使用:dic[i]=[sorted(list1),sorted(list2),&hellip;] 写是可以，但是优化余地特别大</p>
 <p>那么这样遍历的思想是不行的</p>
 <p>所以，使用回溯，或者递归</p>
 <p>对于递归来说，终止情况是，diff=target-num=0；演进过程是，不断对diff查找，找到diff所属的答案后将其append</p>

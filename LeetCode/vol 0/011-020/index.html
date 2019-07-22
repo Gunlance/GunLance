@@ -853,18 +853,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vol 1/091-100/" title="091 100" class="md-nav__link">
-      091 100
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../vol 1/101-110/" title="101 110" class="md-nav__link">
       101 110
     </a>
@@ -1818,12 +1806,14 @@
 
 <p>想要聪明一点得到容器的容积需要</p>
 <ul>
-<li>DP？</li>
+<li>DP？<ul>
 <li>那么如何记录值呢？状态生成式是？</li>
 <li>dp[]? dp[i]与其匹配的坐标？-&gt;如何计算，<del>min(height[i],height[dp[i-1]])*abs(i-dp[i-1]),?</del> </li>
 <li>感觉dp不行</li>
+</ul>
+</li>
 <li>二分</li>
-<li>两端向中心搜索？</li>
+<li>两端向中心搜索？<ul>
 <li>遇到容积变少就是最大？<ul>
 <li>反例 1 8 8 8 9 1   5-&gt;4 最大16</li>
 </ul>
@@ -1832,21 +1822,29 @@
 <li>容积取决于height[i],i</li>
 <li>min(height[i],height[j])*(j-i)</li>
 <li>这里假设j不变</li>
-<li>如果 <font color=d55fde><em>慢着怎么感觉又跑到之前的想法了</em></font></li>
+<li>如果 <font color=d55fde><em>慢着怎么感觉又跑到之前的想法了</em></font><ul>
 <li>height[i+1]-height[i]&gt;abs(j-(i+i)?</li>
+</ul>
+</li>
 <li>或者直接遍历？</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="_1">法一<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>采用两个指针l和r，初始化分别指向数组的两端，</li>
-<li>然后在向中间移动找到最大容量。</li>
+<li>然后在向中间移动找到最大容量。<ul>
 <li>如果l指向的数字小，则l需要右移才有可能获得更大容量，<ul>
-<li>因为此时如果左移r，得到的容量肯定比左移r之前的容量小</li>
+<li>因为此时如果左移r，得到的容量肯定比左移r之前的容量小<ul>
 <li>（高度已经被较小的l限制住了）。</li>
+</ul>
+</li>
 <li>如果r指向的数字小，则需要左移r。</li>
 <li>这样，当l和r相遇的时候，最大的容量就是我们需要的</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2068,8 +2066,10 @@ Explanation: There is no common prefix among the input strings.
 <p><strong>想法</strong></p>
 <ul>
 <li>DP？</li>
-<li>异或？</li>
+<li>异或？<ul>
 <li>python不支持字符串的异或</li>
+</ul>
+</li>
 </ul>
 <p>先暴力试试吧</p>
 <h3 id="_5">法一<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -2112,9 +2112,11 @@ Explanation: There is no common prefix among the input strings.
 <p><strong>想法</strong></p>
 <ul>
 <li>存储 set</li>
-<li>使用2sum的思想？hash表来存储等于零的数字？</li>
+<li>使用2sum的思想？hash表来存储等于零的数字？<ul>
 <li><del>不对，这样就是暴力的做法</del></li>
 <li>那就暴力试试吧，用两个dic来做</li>
+</ul>
+</li>
 <li>排个序会更好？</li>
 </ul>
 <p>先暴力试试，不过那也是<span><span class="MathJax_Preview">n^3</span><script type="math/tex">n^3</script></span>的复杂度</p>
@@ -2227,19 +2229,23 @@ Explanation: There is no common prefix among the input strings.
 <p>给定n个整数和整数目标的数组nums，在nums中找到三个整数，使得总和最接近目标。</p>
 <p>返回总和</p>
 <p><strong>想法</strong></p>
-<p>3sum的变种，所以还是使用字典来存储
-* key   数字num
-* value</p>
+<p>3sum的变种，所以还是使用字典来存储</p>
+<ul>
+<li>key   数字num</li>
+<li>value</li>
+</ul>
 <p>使用3sum的思想，建立一字典，然后往后遍历查找</p>
 <ul>
 <li>搜索之，左移右移？</li>
 <li>diff = target - num - (nums[left]+nums[right])</li>
 <li>diff小于零 需要查找得值变小 nums[right] down </li>
 <li>diff大于零 需要查找得值变大 nums[left]  ascend</li>
-<li>直到</li>
+<li>直到<ul>
 <li>left&gt;=right</li>
 <li>diff = 0</li>
 <li>abs(diff)最小，当abs(diff)变大时结束循环？</li>
+</ul>
+</li>
 </ul>
 <p>-1 -1 2 3 4</p>
 <h3 id="_8">法一<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>

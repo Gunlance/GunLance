@@ -580,18 +580,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../LeetCode/vol 1/091-100/" title="091 100" class="md-nav__link">
-      091 100
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../LeetCode/vol 1/101-110/" title="101 110" class="md-nav__link">
       101 110
     </a>
@@ -1571,7 +1559,7 @@
   发送到veth pair 一端的以太网帧由 veth pair 的另一端接收。
   网络使用 veth pair 作为虚拟跳线，以在虚拟网桥之间建立连接。</li>
 <li>Linux Bridge
-  Linux Bridge的行为可以看作一个hub（<strong>本图中</strong>），可以将多个物理设备或是虚拟设备链接到 Linux Bridge 中。Linux Bridge 的任何一个已连接的接口进入所有以太网帧都会传输到其他所有设备<blockquote>
+  Linux Bridge的行为可以看作一个hub（ <strong>本图中</strong> ），可以将多个物理设备或是虚拟设备链接到 Linux Bridge 中。Linux Bridge 的任何一个已连接的接口进入所有以太网帧都会传输到其他所有设备<blockquote>
 <p>集线器（hub）：一个口收到的信号，原封不动的发送给所有其他的口，由其他的口上的设备自己决定是否接收信号。有点类似广播，但是比广播更纯粹。由于hub只是简单的转发，所以hub工作在物理层（L1）</p>
 </blockquote>
 </li>
@@ -1587,11 +1575,13 @@
 计算机发出的广播包可以被同一个 LAN 中其他计算机收到，但位于其他 LAN 的计算机则无法收到。
 简单地说，VLAN 将一个交换机分成了多个交换机，限制了广播的范围，在二层将计算机隔离到不同的 VLAN 中。</p>
 <p><strong>VLAN 是 二层上的隔离</strong>，逻辑分割广播域。将不同接口加入不同VLAN</p>
-<p>种类
-* 静态VLAN
-  * 基于端口的划分的VLAN
-* 动态VLAN
-  * 基于MAC地址划分的动态VLAN</p>
+<p>种类</p>
+<ul>
+<li>静态VLAN</li>
+<li>基于端口的划分的VLAN</li>
+<li>动态VLAN</li>
+<li>基于MAC地址划分的动态VLAN</li>
+</ul>
 <h4 id="vlan_1">VLAN端口<a class="headerlink" href="#vlan_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Access</strong></li>
@@ -1631,13 +1621,13 @@
 <h3 id="vxlan">VXLAN<a class="headerlink" href="#vxlan" title="Permanent link">&para;</a></h3>
 <p>Virtual Extensible LAN 是为了弥补VLAN的不足，以下几个方面</p>
 <ul>
-<li>虚拟化技术的发展促使大数据、云计算技术公司采用单个物理设备虚拟多台虚拟机的方式来进行组网，随着应用模块的增加，对于支持VLAN数目的要求也在提升，802.1Q标准中的**最多支持4094个VLAN的能力已经无法满足当下需求**</li>
-<li>公有云提供商的业务要求将实体网络租借给多个不同的用户，这些用户对于网络的要求有所不同，而不同用户租借的网络有很大的可能**会出现IP地址、MAC地址的重叠**，传统的VLAN仅仅解决了同一链路层网络广播域隔离的问题，而并没有涉及到网络地址重叠的问题，因此需要一种新的技术来保证在多个租户网络中存在地址重叠的情况下依旧能有效通信的技术</li>
-<li>虚拟化技术的出现增加了交换机的负担，对于大型的数据中心而言，单台交换机必须支持数十台以上主机的通信连接才足以满足应用需求，而虚拟化技术使得单台主机可以虚拟化出多台虚拟机同时运行，而每台虚拟机都会有其唯一的MAC地址。这样，为了保证集群中所有虚机可以正常通信，交换机必须保存每台虚机的MAC地址，这样就导致了**交换机中的MAC表异常庞大，从而影响交换机的转发性能**</li>
+<li>虚拟化技术的发展促使大数据、云计算技术公司采用单个物理设备虚拟多台虚拟机的方式来进行组网，随着应用模块的增加，对于支持VLAN数目的要求也在提升，802.1Q标准中的 <strong>最多支持4094个VLAN的能力已经无法满足当下需求</strong></li>
+<li>公有云提供商的业务要求将实体网络租借给多个不同的用户，这些用户对于网络的要求有所不同，而不同用户租借的网络有很大的可能 <strong>会出现IP地址、MAC地址的重叠</strong> ，传统的VLAN仅仅解决了同一链路层网络广播域隔离的问题，而并没有涉及到网络地址重叠的问题，因此需要一种新的技术来保证在多个租户网络中存在地址重叠的情况下依旧能有效通信的技术</li>
+<li>虚拟化技术的出现增加了交换机的负担，对于大型的数据中心而言，单台交换机必须支持数十台以上主机的通信连接才足以满足应用需求，而虚拟化技术使得单台主机可以虚拟化出多台虚拟机同时运行，而每台虚拟机都会有其唯一的MAC地址。这样，为了保证集群中所有虚机可以正常通信，交换机必须保存每台虚机的MAC地址，这样就导致了 <strong>交换机中的MAC表异常庞大，从而影响交换机的转发性能</strong></li>
 </ul>
-<p>VXLAN技术是网络Overlay技术的一种实现，Overlay直译为覆盖，即在**物理网络拓扑的基础上构建的逻辑网络**。对于构建在Overlay上的终端而言，物理网络的括扑结构对其是透明的。</p>
-<p>VXLAN技术可以**基于三层网络结构来构建二层虚拟网络**，通过VLAN技术可以将处于不同网段网络设备整合在同一个逻辑链路层网络中，对于终端用户而言，这些网络设备似乎“真实地”部署在了同一个链路层网络中。</p>
-<p>下图为VXLAN报文格式，原始报文在VXLAN接入点（被称为VTEP）<strong>加上VXLAN帧头后再被封装在UDP报头中</strong>，并使用承载网络的IP/MAC地址作为外层头进行封装，承载网络只需要按照普通的二三层转发流程进行转发即可。</p>
+<p>VXLAN技术是网络Overlay技术的一种实现，Overlay直译为覆盖，即在 <strong>物理网络拓扑的基础上构建的逻辑网络</strong> 。对于构建在Overlay上的终端而言，物理网络的括扑结构对其是透明的。</p>
+<p>VXLAN技术可以 <strong>基于三层网络结构来构建二层虚拟网络</strong> ，通过VLAN技术可以将处于不同网段网络设备整合在同一个逻辑链路层网络中，对于终端用户而言，这些网络设备似乎“真实地”部署在了同一个链路层网络中。</p>
+<p>下图为VXLAN报文格式，原始报文在VXLAN接入点（被称为VTEP）<strong>加上VXLAN帧头后再被封装在UDP报头中</strong> ，并使用承载网络的IP/MAC地址作为外层头进行封装，承载网络只需要按照普通的二三层转发流程进行转发即可。</p>
 <p><img alt="" src="../assets/2019-07-11-11-20-09.png" /></p>
 <h4 id="vxlan_1">VXLAN 模型<a class="headerlink" href="#vxlan_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1668,8 +1658,10 @@
 <p>Overlay网络是将已有的物理网络（Underlay网络）作为基础，在其上建立叠加的逻辑网络，实现网络资源的虚拟化</p>
 <p>Overlay网络是建立在已有物理网络上的虚拟网络，具有独立的控制和转发平面，对于连接到Overlay的终端设备（例如服务器）来说，物理网络是透明的，从而可以实现承载网络和业务网络的分离。</p>
 <p>Overlay技术有多种，例如VXLAN、NVGRE、STT等，其中VXLAN是目前获得最广泛支持的Overlay技术。</p>
-<p>参考资料
-* <a href="https://support.huawei.com/enterprise/zh/doc/EDOC1100023543?section=j015">https://support.huawei.com/enterprise/zh/doc/EDOC1100023543?section=j015</a></p>
+<p>参考资料</p>
+<ul>
+<li><a href="https://support.huawei.com/enterprise/zh/doc/EDOC1100023543?section=j015">https://support.huawei.com/enterprise/zh/doc/EDOC1100023543?section=j015</a></li>
+</ul>
 <h3 id="iptable">IPtable<a class="headerlink" href="#iptable" title="Permanent link">&para;</a></h3>
                 
                   

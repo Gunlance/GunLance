@@ -861,18 +861,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vol 1/091-100/" title="091 100" class="md-nav__link">
-      091 100
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../vol 1/101-110/" title="101 110" class="md-nav__link">
       101 110
     </a>
@@ -2012,9 +2000,11 @@ Note: &quot;aba&quot; is also a valid answer.
 <p><strong>猜想</strong></p>
 <p>要求是返回一个最长的子回文字符串，那么需要注意的是</p>
 <ul>
-<li>回文串的形式</li>
+<li>回文串的形式<ul>
 <li>aba</li>
 <li>aa</li>
+</ul>
+</li>
 </ul>
 <p>最长子回文串的起始地址与其偏移、结束地址</p>
 <p>那么，能否使用首尾两个指针来向中心移动呢？ 想了下大概不行，例子如 ababvda</p>
@@ -2149,18 +2139,24 @@ Note: &quot;aba&quot; is also a valid answer.
 <p>这里出错了，不知道是哪里的问题</p>
 <p>已知的</p>
 <ul>
-<li>i从头开始，字符串尾部未考虑到，应该从尾部开始</li>
-<li>疑虑：不是回文吗？从头从尾不是一样么？</li>
+<li>i从头开始，字符串尾部未考虑到，应该从尾部开始<ul>
+<li>疑虑：不是回文吗？从头从尾不是一样么?</li>
 <li>abbbbbba<ul>
-<li>从头</li>
+<li>从头<ul>
 <li>a</li>
 <li>ab</li>
 <li>bb </li>
-<li>从尾</li>
+</ul>
+</li>
+<li>从尾<ul>
 <li>a</li>
 <li>ba</li>
 <li>bb bba</li>
+</ul>
+</li>
 <li>大概就这意思</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2802,8 +2798,10 @@ tmp 0 1 2 1 0 1 2 1 0 1
 <p>实现atoi函数，string转换成int变量</p>
 <p>回想之前atoi函数，有以下几种功能</p>
 <ul>
-<li>只读取第一个可被转换成数字的字符串</li>
+<li>只读取第一个可被转换成数字的字符串<ul>
 <li>如果首字符是空格以外的字符报错</li>
+</ul>
+</li>
 <li>读取 - + 号</li>
 <li>返回INT</li>
 </ul>
@@ -3029,8 +3027,8 @@ tmp 0 1 2 1 0 1 2 1 0 1
 由两端向中心移动？
 * 左端除10，右端%10
 * 移动？记录最大位？最大位可在循环时候记录
-  * 左端 a//div % 10
-  * 右端 a//div % 10</p>
+    * 左端 a//div % 10
+    * 右端 a//div % 10</p>
 <p>用字符串的方式
 回文字符串</p>
 <h3 id="_17">法一<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>

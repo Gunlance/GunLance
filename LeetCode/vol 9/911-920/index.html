@@ -582,18 +582,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vol 1/091-100/" title="091 100" class="md-nav__link">
-      091 100
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../vol 1/101-110/" title="101 110" class="md-nav__link">
       101 110
     </a>
@@ -1341,10 +1329,12 @@
                   <h1>911 920</h1>
                 
                 <h2 id="919">919<a class="headerlink" href="#919" title="Permanent link">&para;</a></h2>
-<p>编写一个使用完全二叉树初始化的数据结构<code>CBTInserter</code>，并支持以下操作：
-* <code>CBTInserter(TreeNode root)</code>使用头节点root初始化给定树上的数据结构;
-* <code>CBTInserter.insert(int v)</code>将插入<code>node.val = v</code>的TreeNode进入完全二叉树，同时维持树的完整性，并返回插入的TreeNode的父值;
-* <code>CBTInserter.get_root()</code>将返回树的头节点</p>
+<p>编写一个使用完全二叉树初始化的数据结构<code>CBTInserter</code>，并支持以下操作：</p>
+<ul>
+<li><code>CBTInserter(TreeNode root)</code>使用头节点root初始化给定树上的数据结构;</li>
+<li><code>CBTInserter.insert(int v)</code>将插入<code>node.val = v</code>的TreeNode进入完全二叉树，同时维持树的完整性，并返回插入的TreeNode的父值;</li>
+<li><code>CBTInserter.get_root()</code>将返回树的头节点</li>
+</ul>
 <p><strong>想法</strong></p>
 <p>没什么想法，完全二叉树的插入嘛，用数组保存</p>
 <p>节点<code>i</code>的左孩子在数组的<code>2*i</code>，右孩子在数组的<code>2*i+1</code></p>
