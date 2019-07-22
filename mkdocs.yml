@@ -12,6 +12,7 @@ theme:
   #   icon: ''
 
 markdown_extensions:
+  - smarty
   - admonition
   - codehilite:
       guess_lang: false
