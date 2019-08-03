@@ -1,5 +1,7 @@
-# Gunlance's
+# Gunlance's Gitpage
 
 基于mkdocs-material搭建的Github Page
 
-夏姬霸写点什么东西
+随便写点什么东西
+
+https://Gunlance.github.io/GunLance/
