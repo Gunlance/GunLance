@@ -1405,6 +1405,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#topk" title="Top(K)" class="md-nav__link">
+    Top(K)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="快排" class="md-nav__link">
+    快排
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="最小堆" class="md-nav__link">
+    最小堆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="分治" class="md-nav__link">
+    分治
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1413,6 +1447,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../操作系统/" title="操作系统" class="md-nav__link">
+      操作系统
+    </a>
   </li>
 
         
@@ -1583,6 +1629,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#topk" title="Top(K)" class="md-nav__link">
+    Top(K)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="快排" class="md-nav__link">
+    快排
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="最小堆" class="md-nav__link">
+    最小堆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="分治" class="md-nav__link">
+    分治
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1604,6 +1684,27 @@
                 
                 <h2 id="_1">最长不重复子串<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>leetcode 003</p>
+<h2 id="topk">Top(K)<a class="headerlink" href="#topk" title="Permanent link">&para;</a></h2>
+<ol>
+<li>直接排序</li>
+<li>快排变形</li>
+<li>最小堆算法</li>
+<li>分治</li>
+</ol>
+<h3 id="_2">快排<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>类似于快速排序，首先选择一个划分元，将比这个划分元大的元素放到它的前面，比划分元小的元素放到它的后面，此时完成了一趟排序。</p>
+<p>如果此时这个划分元的序号index刚好等于K，那么这个划分元以及它左边的数，刚好就是前K个最大的元素；
+如果index  &gt; K，那么前K大的数据在index的左边，那么就继续递归的从index-1个数中进行一趟排序；
+如果index &lt; K，那么再从划分元的右边继续进行排序，直到找到序号index刚好等于K为止。</p>
+<p>再将前K个数进行排序后，返回Top K个元素。这种方法就避免了对除了Top K个元素以外的数据进行排序所带来的不必要的开销。</p>
+<h3 id="_3">最小堆<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>先读取前K个数，建立一个最小堆。</p>
+<p>然后将剩余的所有数字依次与最小堆的堆顶进行比较，如果小于或等于堆顶数据，则继续比较下一个；</p>
+<p>否则，删除堆顶元素，并将新数据插入堆中，重新调整最小堆。当遍历完全部数据后，最小堆中的数据即为最大的K个数。</p>
+<h3 id="_4">分治<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>将全部数据分成N份，前提是每份的数据都可以读到内存中进行处理，找到每份数据中最大的K个数。</p>
+<p>此时剩下<span><span class="MathJax_Preview">N*K</span><script type="math/tex">N*K</script></span>个数据，如果内存不能容纳<span><span class="MathJax_Preview">N*K</span><script type="math/tex">N*K</script></span>个数据，则再继续分治处理，分成M份，找出每份数据中最大的K个数，如果M*K个数仍然不能读到内存中，则继续分治处理。</p>
+<p>直到剩余的数可以读入内存中，那么可以对这些数使用快速排序的变形或者归并排序进行处理。</p>
                 
                   
                 
@@ -1639,13 +1740,13 @@
           </a>
         
         
-          <a href="../数据结构的应用/" title="数据结构的应用" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../操作系统/" title="操作系统" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                数据结构的应用
+                操作系统
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

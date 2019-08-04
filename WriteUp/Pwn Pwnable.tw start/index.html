@@ -1384,6 +1384,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Note/Interview/操作系统/" title="操作系统" class="md-nav__link">
+      操作系统
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Note/Interview/数据结构的应用/" title="数据结构的应用" class="md-nav__link">
       数据结构的应用
     </a>
@@ -1543,8 +1555,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#0x03-exp" title="0x03 exp" class="md-nav__link">
-    0x03 exp
+  <a href="#0x03-exp" title="0x03 EXP" class="md-nav__link">
+    0x03 EXP
   </a>
   
 </li>
@@ -1617,8 +1629,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#0x03-exp" title="0x03 exp" class="md-nav__link">
-    0x03 exp
+  <a href="#0x03-exp" title="0x03 EXP" class="md-nav__link">
+    0x03 EXP
   </a>
   
 </li>
@@ -1705,7 +1717,7 @@
 </pre></div>
 </td></tr></table>
 
-<p>根据<a href="https://www.informatik.htw-dresden.de/~beck/ASM/syscall_list.html">系统调用号</a>，得知当eax为3时，执行<code>sys_read</code>，在加上gdb调试，得到函数流程</p>
+<p>根据<a href="http://syscalls.kernelgrok.com/">系统调用号</a>，得知当eax为3时，执行<code>sys_read</code>，在加上gdb调试，得到函数流程</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -1752,7 +1764,7 @@ ret至<code>sys_write</code>，该函数地址是不变的，一直为0x08048087
 <p>所以只能放在泄露的栈空间的后面，即leak+20 = 0xffffd120+20 的地址处</p>
 <p>见下图，返回地址的存放的栈地址是0xffffd130，泄露出的是地址是0xffffd120，因此需要让返回地址变为0xffffd134，而0xffffd134存放shellcode就行了</p>
 <p><img alt="" src="../assets/2019-07-30-09-38-56.png" /></p>
-<h2 id="0x03-exp">0x03 exp<a class="headerlink" href="#0x03-exp" title="Permanent link">&para;</a></h2>
+<h2 id="0x03-exp">0x03 EXP<a class="headerlink" href="#0x03-exp" title="Permanent link">&para;</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
