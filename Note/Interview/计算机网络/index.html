@@ -1496,8 +1496,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../数据结构的应用/" title="数据结构的应用" class="md-nav__link">
-      数据结构的应用
+    <a href="../数据结构/" title="数据结构" class="md-nav__link">
+      数据结构
     </a>
   </li>
 
@@ -1599,6 +1599,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_7" title="路由算法" class="md-nav__link">
+    路由算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#web" title="Web 页面请求过程" class="md-nav__link">
     Web 页面请求过程
   </a>
@@ -1677,6 +1684,42 @@
   <li class="md-nav__item">
     <a href="../废弃代码/笔试 头条/" title="笔试 头条" class="md-nav__link">
       笔试 头条
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../废弃代码/笔试 拼多多/" title="笔试 拼多多" class="md-nav__link">
+      笔试 拼多多
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../废弃代码/笔试 滴滴安全/" title="笔试 滴滴安全" class="md-nav__link">
+      笔试 滴滴安全
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../废弃代码/笔试 腾讯 第二次/" title="笔试 腾讯 第二次" class="md-nav__link">
+      笔试 腾讯 第二次
     </a>
   </li>
 
@@ -1927,6 +1970,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_7" title="路由算法" class="md-nav__link">
+    路由算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#web" title="Web 页面请求过程" class="md-nav__link">
     Web 页面请求过程
   </a>
@@ -1989,7 +2039,7 @@
                 <h2 id="tcp">TCP<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h2>
 <h3 id="_1">三次握手<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ol>
-<li>客户端发送syn0给服务器</li>
+<li>客户端发送syn0  给服务器</li>
 <li>服务器收到syn0，回复syn1,ack(syn0+1)</li>
 <li>客户端收到syn1，回复ack(syn1+1)</li>
 </ol>
@@ -2034,6 +2084,7 @@
 <li>接下来的数据传输都使用该对称密钥key进行加密。</li>
 </ol>
 <h2 id="_6">内网穿透<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">路由算法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <h2 id="web">Web 页面请求过程<a class="headerlink" href="#web" title="Permanent link">&para;</a></h2>
 <p>参考资料</p>
 <ul>
@@ -2057,7 +2108,7 @@
 <p>连接在交换机的 DHCP 服务器收到广播帧之后，不断地向上分解得到 IP 数据报、UDP 报文段、DHCP 请求报文，之后生成 DHCP ACK 报文，该报文包含以下信息：IP 地址、DNS 服务器的 IP 地址、默认网关路由器的 IP 地址和子网掩码。该报文被放入 UDP 报文段中，UDP 报文段有被放入 IP 数据报中，最后放入 MAC 帧中。</p>
 </li>
 <li>
-<p>该帧的**目的地址是请求主机的 MAC 地址**，因为交换机具有自学习能力，之前**主机发送了广播帧之后就记录了 MAC 地址到其转发接口的交换表项**，因此现在交换机就可以直接知道应该向哪个接口发送该帧。</p>
+<p>该帧的 <strong>目的地址是请求主机的 MAC 地址</strong>，因为交换机具有自学习能力，之前 <strong>主机发送了广播帧之后就记录了 MAC 地址到其转发接口的交换表项</strong>，因此现在交换机就可以直接知道应该向哪个接口发送该帧。</p>
 </li>
 <li>
 <p>主机收到该帧后，不断分解得到 DHCP 报文。之后就配置它的 IP 地址、子网掩码和 DNS 服务器的 IP 地址，并在其 IP 转发表中安装默认网关。</p>
@@ -2093,10 +2144,10 @@
 <p>知道了网关路由器的 MAC 地址之后，就可以继续 DNS 的解析过程了。</p>
 </li>
 <li>
-<p>网关路由器接收到包含 DNS 查询报文的以太网帧后，抽取出 IP 数据报，并**根据转发表决定该 IP 数据报应该转发的路由器**。</p>
+<p>网关路由器接收到包含 DNS 查询报文的以太网帧后，抽取出 IP 数据报，并 <strong>根据转发表决定该 IP 数据报应该转发的路由器</strong> 。</p>
 </li>
 <li>
-<p>因为路由器具有**内部网关协议（RIP、OSPF）和外部网关协议（BGP）**这两种路由选择协议，因此路由表中已经配置了网关路由器到达 DNS 服务器的路由表项。</p>
+<p>因为路由器具有 <strong>内部网关协议（RIP、OSPF）和外部网关协议（BGP）</strong> 这两种路由选择协议，因此路由表中已经配置了网关路由器到达 DNS 服务器的路由表项。</p>
 </li>
 <li>
 <p>到达 DNS 服务器之后，DNS 服务器抽取出 DNS 查询报文，并在 DNS 数据库中查找待解析的域名。</p>
@@ -2146,7 +2197,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../数据结构的应用/" title="数据结构的应用" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../数据结构/" title="数据结构" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2155,7 +2206,7 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                数据结构的应用
+                数据结构
               </span>
             </div>
           </a>

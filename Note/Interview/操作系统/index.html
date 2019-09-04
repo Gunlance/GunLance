@@ -1594,15 +1594,15 @@
     进程调度
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_12" title="锁" class="md-nav__link">
     锁
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_13" title="批处理系统" class="md-nav__link">
@@ -1754,8 +1754,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../数据结构的应用/" title="数据结构的应用" class="md-nav__link">
-      数据结构的应用
+    <a href="../数据结构/" title="数据结构" class="md-nav__link">
+      数据结构
     </a>
   </li>
 
@@ -1799,6 +1799,42 @@
   <li class="md-nav__item">
     <a href="../废弃代码/笔试 头条/" title="笔试 头条" class="md-nav__link">
       笔试 头条
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../废弃代码/笔试 拼多多/" title="笔试 拼多多" class="md-nav__link">
+      笔试 拼多多
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../废弃代码/笔试 滴滴安全/" title="笔试 滴滴安全" class="md-nav__link">
+      笔试 滴滴安全
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../废弃代码/笔试 腾讯 第二次/" title="笔试 腾讯 第二次" class="md-nav__link">
+      笔试 腾讯 第二次
     </a>
   </li>
 
@@ -2068,15 +2104,15 @@
     进程调度
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_12" title="锁" class="md-nav__link">
     锁
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_13" title="批处理系统" class="md-nav__link">
@@ -2272,7 +2308,19 @@
 <p>那和多线程比，协程最大的优势就是协程极高的执行效率。因为子程序切换不是线程切换， <strong>而是由程序自身控制</strong> ，因此，没有线程切换的开销，和多线程比，线程数量越多，协程的性能优势就越明显。</p>
 <p>第二大优势就是 <strong>不需要多线程的锁机制</strong></p>
 <h3 id="_11">进程调度<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<h3 id="_12">锁<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h4 id="_12">锁<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>在多线程编程中，操作系统引入了锁机制。通过锁机制，能够保证在多核多线程环境中，在某一个时间点上，只能有一个线程进入临界区代码，从而保证临界区中操作数据的一致性。</p>
+<p>所谓的锁，可以理解为内存中的一个整型数，拥有两种状态：空闲状态和上锁状态。加锁时，判断锁是否空闲，如果空闲，修改为上锁状态，返回成功；如果已经上锁，则返回失败。解锁时，则把锁状态修改为空闲状态。 
+加锁过程用如下伪码表示</p>
+<ol>
+<li>read lock； </li>
+<li>判断lock状态； </li>
+<li>如果已经加锁，失败返回； </li>
+<li>把锁状态设置为上锁； </li>
+<li>返回成功。 </li>
+</ol>
+<p>虽然每一步是原子性的，但是每一步之间却是可以中断的。比如进程A在执行完2后发生中断，中断中进程B也执行了加锁过程，返回中断后就会发生两个进程都会加锁。 
+对于这个问题，计算机已经解决，方法是采用原子级汇编指令test and set 和swap。</p>
 <h4 id="_13">批处理系统<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
 <p>先来先服务</p>
 <p>短作业优先</p>
@@ -2333,13 +2381,13 @@
           </a>
         
         
-          <a href="../数据结构的应用/" title="数据结构的应用" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../数据结构/" title="数据结构" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                数据结构的应用
+                数据结构
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

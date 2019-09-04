@@ -878,6 +878,46 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#219" title="219" class="md-nav__link">
+    219
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="法一" class="md-nav__link">
+    法一
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#220" title="220" class="md-nav__link">
+    220
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="法一" class="md-nav__link">
+    法一
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1543,8 +1583,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Note/Interview/数据结构的应用/" title="数据结构的应用" class="md-nav__link">
-      数据结构的应用
+    <a href="../../../Note/Interview/数据结构/" title="数据结构" class="md-nav__link">
+      数据结构
     </a>
   </li>
 
@@ -1588,6 +1628,42 @@
   <li class="md-nav__item">
     <a href="../../../Note/Interview/废弃代码/笔试 头条/" title="笔试 头条" class="md-nav__link">
       笔试 头条
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Note/Interview/废弃代码/笔试 拼多多/" title="笔试 拼多多" class="md-nav__link">
+      笔试 拼多多
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Note/Interview/废弃代码/笔试 滴滴安全/" title="笔试 滴滴安全" class="md-nav__link">
+      笔试 滴滴安全
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Note/Interview/废弃代码/笔试 腾讯 第二次/" title="笔试 腾讯 第二次" class="md-nav__link">
+      笔试 腾讯 第二次
     </a>
   </li>
 
@@ -1789,6 +1865,46 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#219" title="219" class="md-nav__link">
+    219
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="法一" class="md-nav__link">
+    法一
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#220" title="220" class="md-nav__link">
+    220
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="法一" class="md-nav__link">
+    法一
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1846,6 +1962,213 @@ Output: true
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">containsDuplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
          <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="219">219<a class="headerlink" href="#219" title="Permanent link">&para;</a></h2>
+<p>给定一个整数数组和一个整数k，找出数组中是否存在两个不同的索引i和j，使得nums [i] = nums [j]并且i和j之间的绝对差值最多为k。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Example 1:
+
+Input: nums = [1,2,3,1], k = 3
+Output: true
+
+
+Example 2:
+
+Input: nums = [1,0,1,1], k = 1
+Output: true
+
+
+Example 3:
+
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
+</pre></div>
+</td></tr></table>
+
+<p><strong>想法</strong></p>
+<p>我想到了dp。。。能否划分为子问题吗？</p>
+<p>我们首先来个暴力的</p>
+<p>草我简单的暴力问题都有边界条件的问题</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">containsNearbyDuplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</td></tr></table>
+
+<p>果不其然</p>
+<p>来个map，查表index</p>
+<h3 id="_2">法一<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">containsNearbyDuplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+                <span class="n">dic</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">-</span> <span class="n">dic</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">dic</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</td></tr></table>
+
+<p>为毛下面那个这么快</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">containsNearbyDuplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">nums_seen</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums_seen</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">nums_seen</span><span class="p">[</span><span class="n">num</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">nums_seen</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nums_seen</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="220">220<a class="headerlink" href="#220" title="Permanent link">&para;</a></h2>
+<p>给定一个整数数组，找出数组中是否有两个不同的索引i和j，使得nums [i]和nums [j]之间的绝对差值最大为t，i和j之间的绝对差值最为k。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Example 1:
+
+Input: nums = [1,2,3,1], k = 3, t = 0
+Output: true
+
+
+Example 2:
+
+Input: nums = [1,0,1,1], k = 1, t = 2
+Output: true
+
+
+Example 3:
+
+Input: nums = [1,5,9,1,5,9], k = 2, t = 3
+Output: false
+</pre></div>
+</td></tr></table>
+
+<p><strong>想法</strong></p>
+<p>219是相等，所以可以直接用map的方式来查表</p>
+<p>现在是绝对值的差为t，能用么（key:区间 value:nums[i]）？</p>
+<h3 id="_3">法一<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>判断给定数组中是否存在两个索引下标i，j，满足
+1. <span><span class="MathJax_Preview">|j−i| \leq k</span><script type="math/tex">|j−i| \leq k</script></span>
+2. <span><span class="MathJax_Preview">|\mathrm{nums}[j]−\mathrm{nums}[i]|\leq t</span><script type="math/tex">|\mathrm{nums}[j]−\mathrm{nums}[i]|\leq t</script></span></p>
+<p>对2进行变形： </p>
+<p><span><span class="MathJax_Preview">|\frac{\mathrm{nums}[j]}{t}−\frac{\mathrm{nums}[i]}{t}|\leq 1</span><script type="math/tex">|\frac{\mathrm{nums}[j]}{t}−\frac{\mathrm{nums}[i]}{t}|\leq 1</script></span>
+<span><span class="MathJax_Preview">|\lfloor \frac{ \mathrm{nums}[j]}{t}\rfloor− \lfloor \frac{\mathrm{nums}[i]}{t} \rfloor|\leq 1</span><script type="math/tex">|\lfloor \frac{ \mathrm{nums}[j]}{t}\rfloor− \lfloor \frac{\mathrm{nums}[i]}{t} \rfloor|\leq 1</script></span>
+$\lfloor \frac{ \mathrm{nums}[j]}{t}\rfloor \in { \lfloor \frac{ \mathrm{nums}[i]}{t}\rfloor-1,\lfloor \frac{ \mathrm{nums}[i]}{t}\rfloor,\lfloor \frac{ \mathrm{nums}[i]}{t}\rfloor+1  } $</p>
+<p>因此我们可以维护一个大小为k的字典，其中key为<span><span class="MathJax_Preview">\lfloor \frac{\mathrm{num}}{t} \rfloor</span><script type="math/tex">\lfloor \frac{\mathrm{num}}{t} \rfloor</script></span>，value为num，如果存在一个数x满足条件2，那么这个数的key必然是{ \lfloor \frac{ \mathrm{nums}[i]}{t}\rfloor-1,\lfloor \frac{ \mathrm{nums}[i]}{t}\rfloor,\lfloor \frac{ \mathrm{nums}[i]}{t}\rfloor+1  }三数之一</p>
+<p>也就是说我们只需要验证key等于这三数对应的的value，与num的差的绝对值是否小于t。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">containsNearbyAlmostDuplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">buckets</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+            <span class="n">bucketNum</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="o">//</span> <span class="n">t</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span> <span class="k">else</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bucketNum</span> <span class="o">-</span> <span class="n">offset</span><span class="p">,</span> <span class="n">bucketNum</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">buckets</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+
+            <span class="n">buckets</span><span class="p">[</span><span class="n">bucketNum</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buckets</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">:</span>
+                <span class="c1"># Remove the bucket which is too far away. Beware of zero t.</span>
+                <span class="k">del</span> <span class="n">buckets</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">k</span><span class="p">]</span> <span class="o">//</span> <span class="n">t</span> <span class="k">if</span> <span class="n">t</span> <span class="k">else</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">k</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="bp">False</span>
 </pre></div>
 </td></tr></table>
                 
