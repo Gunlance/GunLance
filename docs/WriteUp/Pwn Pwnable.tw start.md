@@ -42,7 +42,7 @@ ida 分析
 .text:0804809C                 retn
 ```
 
-根据[系统调用号](https://www.informatik.htw-dresden.de/~beck/ASM/syscall_list.html)，得知当eax为3时，执行`sys_read`，在加上gdb调试，得到函数流程
+根据[系统调用号](http://syscalls.kernelgrok.com/)，得知当eax为3时，执行`sys_read`，在加上gdb调试，得到函数流程
 
 ```c
 void_start(){
@@ -94,7 +94,7 @@ ret至`sys_write`，该函数地址是不变的，一直为0x08048087
 ![](assets/2019-07-30-09-38-56.png)
 
 
-## 0x03 exp
+## 0x03 EXP
 
 ```py
 # coding:utf-8

@@ -1,7 +1,10 @@
 ## Gunlance
 
-
 <font color=d55fde>*粉紫色斜体 个人瞎想*</font> 
+
+<font color=d55fde>*如果您是面试官的话。。。这里除了我的笔记外就没什么了。。。请回吧。。。。*</font>
+
+<font color=d55fde>*随缘写笔记，要不我换回 hexo 算了*</font>
 
 ## Material color palette 颜色主题
 
