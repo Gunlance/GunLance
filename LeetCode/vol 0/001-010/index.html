@@ -734,8 +734,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../vol 1/111-120/" title="111 120" class="md-nav__link">
+      111 120
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../vol 1/121-130/" title="121 130" class="md-nav__link">
       121 130
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vol 1/131-140/" title="131 140" class="md-nav__link">
+      131 140
     </a>
   </li>
 
@@ -847,6 +871,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vol 3/291-300/" title="291 300" class="md-nav__link">
+      291 300
+    </a>
+  </li>
+
         
           
           
@@ -1814,8 +1850,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Note/Interview/数据结构/" title="数据结构" class="md-nav__link">
-      数据结构
+    <a href="../../../Note/Interview/数据库/" title="数据库" class="md-nav__link">
+      数据库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Note/Interview/消息队列/" title="消息队列" class="md-nav__link">
+      消息队列
     </a>
   </li>
 
@@ -1851,13 +1899,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4-7" type="checkbox" id="nav-3-4-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4-8" type="checkbox" id="nav-3-4-8">
     
-    <label class="md-nav__link" for="nav-3-4-7">
+    <label class="md-nav__link" for="nav-3-4-8">
       废弃代码
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-4-7">
+      <label class="md-nav__title" for="nav-3-4-8">
         废弃代码
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1871,6 +1919,30 @@
   <li class="md-nav__item">
     <a href="../../../Note/Interview/废弃代码/2019 笔试 快手/" title="2019 笔试 快手" class="md-nav__link">
       2019 笔试 快手
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Note/Interview/废弃代码/2019 练习 小米/" title="2019 练习 小米" class="md-nav__link">
+      2019 练习 小米
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Note/Interview/废弃代码/2020 笔试 VMware/" title="2020 笔试 VMware" class="md-nav__link">
+      2020 笔试 VMware
     </a>
   </li>
 
@@ -1943,6 +2015,42 @@
   <li class="md-nav__item">
     <a href="../../../Note/Interview/废弃代码/2020 笔试 腾讯 2nd/" title="2020 笔试 腾讯 2nd" class="md-nav__link">
       2020 笔试 腾讯 2nd
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4-9" type="checkbox" id="nav-3-4-9">
+    
+    <label class="md-nav__link" for="nav-3-4-9">
+      语言特性
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-4-9">
+        语言特性
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Note/Interview/语言特性/Java/" title="Java" class="md-nav__link">
+      Java
     </a>
   </li>
 
@@ -2450,18 +2558,50 @@
 <h2 id="003">003<a class="headerlink" href="#003" title="Permanent link">&para;</a></h2>
 <p>求字符串 不包括重复字符的最长子串的 长度</p>
 <p>最长不重复子串</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Given a string, find the length of the longest substring without repeating characters.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Example 1:
+
 Input: &quot;abcabcbb&quot;
+Output: 3 
+Explanation: The answer is &quot;abc&quot;, with the length of 3. 
+
+
+Example 2:
+
+Input: &quot;bbbbb&quot;
+Output: 1
+Explanation: The answer is &quot;b&quot;, with the length of 1.
+
+
+Example 3:
+
+Input: &quot;pwwkew&quot;
 Output: 3
-Explanation: The answer is &quot;abc&quot;, with the length of 3.
+Explanation: The answer is &quot;wke&quot;, with the length of 3. 
+             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
 </pre></div>
 </td></tr></table>
 
 <p><strong>想法</strong></p>
-<p>解法：DP算法</p>
+<p>DP？</p>
 <p>矩阵应该是什么，状态转移方程是什么？</p>
 <p>假设是一个list存放状态，该list的每个元素代表对应 以该字符结束的字符串的最长不重复子串的长度？ 那么下一个元素可否使用之前的元素的信息？</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -2526,8 +2666,7 @@ t m m z u x t
 </td></tr></table>
 
 <h2 id="004">004<a class="headerlink" href="#004" title="Permanent link">&para;</a></h2>
-<p>E
-找到两个排序数组的中位数，一开始是想set后求并然后sort直接输出中位数，然后发现这样的中位数并不是原先两个数组的中位数，所以该思路放弃</p>
+<p>找到两个排序数组的中位数，一开始是想set后求并然后sort直接输出中位数，然后发现这样的中位数并不是原先两个数组的中位数，所以该思路放弃</p>
 <p>那么需要下暴力的方法来输出中位数？</p>
 <p>由于是中位数，有以下几种可能</p>
 <h3 id="_5">法一<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
