@@ -1619,8 +1619,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" title="进程简述" class="md-nav__link">
-    进程简述
+  <a href="#_5" title="进程状态" class="md-nav__link">
+    进程状态
   </a>
   
 </li>
@@ -1633,8 +1633,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" title="进程与线程" class="md-nav__link">
-    进程与线程
+  <a href="#_7" title="线程" class="md-nav__link">
+    线程
   </a>
   
     <nav class="md-nav">
@@ -1654,15 +1654,15 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#_10" title="协程" class="md-nav__link">
     协程
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2209,8 +2209,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" title="进程简述" class="md-nav__link">
-    进程简述
+  <a href="#_5" title="进程状态" class="md-nav__link">
+    进程状态
   </a>
   
 </li>
@@ -2223,8 +2223,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" title="进程与线程" class="md-nav__link">
-    进程与线程
+  <a href="#_7" title="线程" class="md-nav__link">
+    线程
   </a>
   
     <nav class="md-nav">
@@ -2244,15 +2244,15 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#_10" title="协程" class="md-nav__link">
     协程
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2455,7 +2455,7 @@
 <p>阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。</p>
 <p>非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</p>
 <h2 id="_4">进程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">进程简述<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5">进程状态<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>三种状态</p>
 <ul>
 <li>就绪</li>
@@ -2464,7 +2464,7 @@
 </ul>
 <h3 id="_6">进程同步与通信<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>进程间通信主要包括管道、系统IPC（包括消息队列、信号量、信号、共享内存等）、以及套接字socket。</p>
-<h3 id="_7">进程与线程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_7">线程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ol>
 <li>进程是对运行时程序的封装，是系统进行资源调度和分配的的基本单位，实现了操作系统的并发</li>
 <li>线程是进程的子任务，是CPU调度和分派的基本单位，用于保证程序的实时性，实现进程内部的并发</li>
@@ -2496,7 +2496,7 @@
 <p>进程可以使多个程序能并发执行，以提高资源的利用率和系统的吞吐量；但是其具有一些缺点：</p>
 <p>进程在同一时间只能干一件事</p>
 <p>进程在执行的过程中如果阻塞，整个进程就会挂起，即使进程中有些工作不依赖于等待的资源，仍然不会执行。</p>
-<h4 id="_10">协程<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h3 id="_10">协程<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>协程，又称微线程，纤程，英文名Coroutine。协程看上去也是子程序，但执行过程中，在子程序内部可中断，然后转而执行别的子程序，在适当的时候再返回来接着执行。</p>
 <p><strong>与线程区别</strong></p>
 <p>那和多线程比，协程最大的优势就是协程极高的执行效率。因为子程序切换不是线程切换， <strong>而是由程序自身控制</strong> ，因此，没有线程切换的开销，和多线程比，线程数量越多，协程的性能优势就越明显。</p>
@@ -2540,6 +2540,156 @@
 <h4 id="fifo">FIFO<a class="headerlink" href="#fifo" title="Permanent link">&para;</a></h4>
 <h4 id="lru">LRU<a class="headerlink" href="#lru" title="Permanent link">&para;</a></h4>
 <p>基于HashMap和双向链表实现LRU</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pre</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">None</span>
+
+
+<span class="k">class</span> <span class="nc">LinkedList</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s1">&#39;HEAD&#39;</span><span class="p">,</span> <span class="s1">&#39;INIT&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s1">&#39;TAIL&#39;</span><span class="p">,</span> <span class="s1">&#39;INIT&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">pre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="n">old_next_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">next</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">pre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">old_next_node</span>
+        <span class="n">old_next_node</span><span class="o">.</span><span class="n">pre</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">len</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="n">pre_node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">pre</span>
+        <span class="n">next_node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+        <span class="n">pre_node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">next_node</span>
+        <span class="n">next_node</span><span class="o">.</span><span class="n">pre</span> <span class="o">=</span> <span class="n">pre_node</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">pre</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">del</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">len</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">printNode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;HEAD-&gt;&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">p</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">val</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">)</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;TAIL&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">LRUCache</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capacity</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">capacity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linkedList</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linkedList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linkedList</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="c1"># self.linkedList.printNode()</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">linkedList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">linkedList</span><span class="o">.</span><span class="n">len</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">:</span>
+            <span class="n">delete_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linkedList</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">pre</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">linkedList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">delete_node</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">delete_node</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linkedList</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="c1"># self.linkedList.printNode()</span>
+</pre></div>
+</td></tr></table>
+
 <h4 id="lfu">LFU<a class="headerlink" href="#lfu" title="Permanent link">&para;</a></h4>
 <h2 id="_22">处理机管理<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
 <h3 id="cache">cache 的数据一致性<a class="headerlink" href="#cache" title="Permanent link">&para;</a></h3>
