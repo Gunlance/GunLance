@@ -43,7 +43,7 @@ p();
 
 * [系统调用号](http://syscalls.kernelgrok.com/)
 
-<!-- todo 调试说明？ -->
+<!-- TODO 调试说明？ -->
 * linux 32位的入参顺序  从右至左依次入栈
       
     > linux 64位参数传递是按照rdi、rsi、rdx、rcx、r8、r9的顺序存放第一个参数到第六个参数。对于超出6个参数的入参还是和32位机器一样放入栈中。
@@ -135,4 +135,4 @@ p.interactive()
 看到[Anciety的博客](https://blog.csdn.net/qq_29343201/article/details/78109066?locationNum=3&fps=1)，打算试试dump
 （给学弟递茶）
 
-Todo 过段时间再弄
+TODO 过段时间再弄

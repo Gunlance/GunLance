@@ -15,7 +15,7 @@ file + checksec 二连
 
 ida 分析
 
-```ida
+```
 .text:08048060                 public _start
 .text:08048060 _start          proc near               ; DATA XREF: LOAD:08048018↑o
 .text:08048060                 push    esp
@@ -46,19 +46,20 @@ ida 分析
 
 ```c
 void_start(){
-    charbuf[20]='Let'sstarttheCTF:';
-    // 从buf往stdout写入20字节
+    char buf[20]='Let'sstarttheCTF:';
+    // 往stdout写入20字节的字节数组buf
     sys_write(1,buf,20);
-    // 从stdin中读取60字节到buf 
+    // 从stdin中读取60字节到字节数组buf 
     sys_read(0,buf,60);
 }
 ```
 
-通过`cyclic`或其他pattern，得到溢出点为20
-因此，当程序执行完`sys_read`时候，往`stdin`写入20bytes，`read`函数往栈中写入了20字节，然后即覆盖main的返回地址
+通过`cyclic`命令或其他pattern，得到栈溢出长度为20bytes
+
+因此，当程序执行完`sys_read`时候，往`stdin`写入20bytes的数据，`read`函数往栈中写入了20字节，然后即覆盖main的返回地址
 返回到`write`函数利用`write`泄漏栈中buf的的地址，然后继续执行到`_start`的返回地址
 
-<!-- todo 说明为什么不变 -->
+<!-- TODO 说明为什么不变 -->
 
 ## 0x02 调试
 
@@ -83,9 +84,9 @@ ret至`sys_write`，该函数地址是不变的，一直为0x08048087
 
 ![](assets/2019-07-30-09-26-02.png)
 
-从标准输入（fd = 0）读入0x3c个字节到0xfffd11c中去
+从标准输入(fd=0)读入0x3c个字节到0xfffd11c中去
 
-由之前的例子可知返回地址距离$esp栈顶地址有20个字节，由于最小的shellcode也大于20字节，所以不能直接放入leak的栈空间地址里。
+由之前的例子可知返回地址距离&esp栈顶地址有20个字节，由于最小的shellcode也大于20字节，所以不能直接放入leak的栈空间地址里。
 
 所以只能放在泄露的栈空间的后面，即leak+20 = 0xffffd120+20 的地址处
 
